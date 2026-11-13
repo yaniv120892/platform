@@ -9,7 +9,7 @@ Load before starting a new app in the suite. Copy from the newest app that has t
    `AppShell` with a new `APP_IDS` entry in `my-ui`, and the app's URL added to every sibling's
    app switcher.
 3. **CI**: `dev-config`'s `node-ci.yml` gate, plus an integration job on a Postgres service.
-4. **Vercel**: a project in `yaniv120892s-projects`, region `fra1`, `buildCommand` that migrates
+4. **Vercel**: a project in `yaniv120892s-projects`, region `fra1` (the database's region), `buildCommand` that migrates
    then builds.
 5. **Data**: a Neon project in Frankfurt with separate Production and Preview branches; Upstash
    for counters → [data.md](data.md).

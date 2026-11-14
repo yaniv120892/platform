@@ -67,6 +67,8 @@ one GitHub Actions cron, in the `observability` repo.
 
 ## Region
 
-Expenses and Investments run in `fra1`, next to their Neon and Upstash databases; Investments needs
-it because Binance refuses US-hosted callers. Shopping and Parking set no region. A new app sets
-`fra1` and creates its Neon and Upstash databases in Frankfurt.
+An app's functions run in the region of its database, so each query stays a short round trip.
+Expenses and Investments run in `fra1` with Neon and Upstash in Frankfurt; Investments must, because
+Binance refuses US-hosted callers. Shopping's database is in `us-east-1`, so it keeps Vercel's
+default US region. Moving an app means moving its database first. A new app starts in `fra1` with
+its databases in Frankfurt.

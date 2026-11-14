@@ -11,7 +11,7 @@ reference for its API; this doc holds what goes where.
 | `my-ui` | MUI theme, `AppShell` and app switcher, he/en i18n with RTL, locale-aware formatting | a page, a component, a string, a number or date on screen |
 | `app-kit` | server guards: Upstash counter store, rate limits, daily budgets with kill switches, security headers, safe redirects, secret and cron checks, signed token format | a route a stranger can drive, paid work (LLM, mail, geocoding), a token, a cron route |
 | `observability` | pino logging to Better Stack, Sentry, Telegram ops alerts, health routes, heartbeats, PostHog events, weekly report | a log line, an error report, an alert, a health route, a product event |
-| `dev-config` | ESLint, Prettier, tsconfig, lint-staged presets and the reusable `node-ci.yml` gate | lint, format, typecheck or CI setup |
+| `dev-config` | ESLint, Prettier, tsconfig, lint-staged presets and the reusable `node-ci.yml` gate (Node 26 by default) | lint, format, typecheck or CI setup |
 
 ## Where new shared code goes
 

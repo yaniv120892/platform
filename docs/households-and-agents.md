@@ -16,6 +16,9 @@ Every suite app stores data per household, with the same model:
 - Invites are short single-use codes at a role the owner picks (never `OWNER`), accepted by an
   explicit POST to `/join`. Sign-in never joins a household.
 
+The suite is moving to one household across apps with a role per app, owned by `my-accounts`:
+[accounts.md](accounts.md). An app follows the rules above until it moves.
+
 A new household-scoped feature reuses the app's write path and activity log; it adds a row cap per
 household for anything a member can create in bulk.
 

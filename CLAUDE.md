@@ -26,7 +26,7 @@ Short docs, one topic each. Load the one whose trigger matches your task.
   product events, and the parts configured outside code. Load before adding a route, a cron or a
   product event.
 - [docs/accounts.md](docs/accounts.md) — one account per person, signed in through `my-accounts`.
-  Load before changing sign-in in any app, or household membership and per-app roles.
+  Load before changing or adding an app's sign-in, or household membership and per-app roles.
 - [docs/households-and-agents.md](docs/households-and-agents.md) — the household model and the two
   agent channels every app exposes. Load before any household-scoped write or agent-facing feature.
 - [docs/new-app.md](docs/new-app.md) — the checklist a new suite app follows. Load before starting

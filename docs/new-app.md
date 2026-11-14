@@ -13,10 +13,11 @@ Load before starting a new app in the suite. Copy from the newest app that has t
    then builds.
 5. **Data**: a Neon project in Frankfurt with separate Production and Preview branches; Upstash
    for counters → [data.md](data.md).
-6. **Auth**: passwordless (Google PKCE or emailed link/code), JWT in an `auth-token` cookie,
-   `tokenVersion` for sign-out everywhere.
-7. **Households and agents**: the household model, MCP and `/agent` pages →
-   [households-and-agents.md](households-and-agents.md).
+6. **Auth**: sign in through `my-accounts` with OpenID Connect, then a JWT in an `auth-token`
+   cookie with `tokenVersion` for sign-out everywhere → [accounts.md](accounts.md), loaded before
+   adding an app's sign-in.
+7. **Households and agents**: the household model with a role per app, MCP and `/agent` pages →
+   [households-and-agents.md](households-and-agents.md) and [accounts.md](accounts.md).
 8. **Cost fences**: `app-kit` rate limits on public routes (fail open) and daily budgets with a
    kill switch on paid work (fail closed).
 9. **Observability**: `createNextObservability`, health routes, Better Stack source, monitors and

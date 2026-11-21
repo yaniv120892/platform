@@ -29,7 +29,7 @@ extractor, 24 h). `app-kit`'s counter store is the client for rate limits and bu
 
 Assume every Upstash database is shared: Shopping and Parking use one Marketplace store, and each
 app's previews and local runs point at its production database. So every key starts with one
-prefix, applied at the app's single Redis chokepoint, never by callers:
+prefix, added where the app builds its Redis client or counter store, never by callers:
 
 | `VERCEL_ENV` | Prefix |
 | --- | --- |
@@ -39,15 +39,16 @@ prefix, applied at the app's single Redis chokepoint, never by callers:
 
 - `<service>` is the app's observability `service` name (`my-shopping`, `park-pal`). The extractor
   keeps `excel-extraction`, the namespace its production keys already use.
-- `<branch>` is `VERCEL_GIT_COMMIT_REF`, falling back to `VERCEL_DEPLOYMENT_ID`, so two previews
-  never share a key and a branch keeps its keys across pushes.
-- Renaming a production key loses what it holds. A prefix change moves production keys only when
-  every key is a TTL'd counter or cache; an app with state in Redis keeps its production keys.
-
-Two apps hold state in production Redis and keep those keys bare until a dual-read migration
-moves them: the Expenses website (sessions; its previews use `preview:<commit>:` for caches and
-`preview:<branch>:` for sessions, without the `<service>:` segment) and Investments (login codes;
-its previews follow the table). Verify against each app's Redis chokepoint.
+- `<branch>` is `VERCEL_GIT_COMMIT_REF`, falling back to `VERCEL_DEPLOYMENT_ID`, then `unknown`. Two
+  branches never share keys, and a branch keeps its keys across pushes.
+- Key names after the prefix never start with an environment name, so a production key cannot
+  read as a preview's.
+- Renaming a production key loses what it holds, so a prefix change moves production keys only when
+  every key is a TTL'd counter or cache. An app whose production keys hold state (sessions, login
+  codes, request state) keeps them until a dual-read migration moves them, and until then its
+  production keys may stay bare only in an Upstash database no other app uses. Its own Redis doc
+  names the exception; the Expenses website and Investments are such apps today.
+- Keys a prefix change leaves behind expire by their TTL.
 
 The archived `my-expenses-app` repo's `docs/redis.md` describes an older `<service>:<environment>:`
 format, `production` included. It is superseded by this section.

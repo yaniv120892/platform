@@ -49,6 +49,9 @@ prefix, added where the app builds its Redis client or counter store, never by c
   production keys may stay bare only in an Upstash database no other app uses. Its own Redis doc
   names the exception; the Expenses website and Investments are such apps today.
 - Keys a prefix change leaves behind expire by their TTL.
+- A preview counts against its own rate limits and daily budgets, not production's, so a limit an
+  upstream sets per account, such as a geocoder's one request a second, can be exceeded when a
+  preview and production call it together.
 
 The archived `my-expenses-app` repo's `docs/redis.md` describes an older `<service>:<environment>:`
 format, `production` included. It is superseded by this section.

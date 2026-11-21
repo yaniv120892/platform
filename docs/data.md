@@ -41,8 +41,8 @@ prefix, added where the app builds its Redis client or counter store, never by c
   keeps `excel-extraction`, the namespace its production keys already use.
 - `<branch>` is `VERCEL_GIT_COMMIT_REF`, falling back to `VERCEL_DEPLOYMENT_ID`, then `unknown`. Two
   branches never share keys, and a branch keeps its keys across pushes.
-- Key names after the prefix never start with an environment name, so a production key cannot
-  read as a preview's.
+- Key names after the prefix start with the key's own domain term (`rate_limit:`, `session:`), so a
+  production key cannot read as a preview's.
 - Renaming a production key loses what it holds, so a prefix change moves production keys only when
   every key is a TTL'd counter or cache. An app whose production keys hold state (sessions, login
   codes, request state) keeps them until a dual-read migration moves them, and until then its

@@ -54,7 +54,8 @@ flowchart LR
 | PostHog (US, project 692842) | every Next.js app | server-side product events; weekly report from the `observability` repo |
 | SMTP (Gmail) | every Next.js app | sign-in codes and links; Expenses monthly report |
 | Google OAuth | Shopping, Parking | sign-in |
-| OpenAI / Gemini | Expenses, Investments, Shopping, extractor | categorisation, advisor and assistant chat, recipe import, extraction |
+| Anthropic (Claude) | Expenses, extractor | categorisation, assistant chat, extraction (`AI_PROVIDER` picks Expenses' provider) |
+| OpenAI / Gemini | Investments, Shopping | advisor chat, recipe import |
 | Finnhub, Binance, TASE Maya, Frankfurter | Investments | prices and FX |
 | Bank of Israel | Expenses | exchange rates |
 | Nominatim | Parking | reverse geocoding |

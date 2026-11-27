@@ -13,7 +13,8 @@ package README is the API; this doc is what the suite expects of each app.
   `SENTRY_*` build variables are set.
 - **Ops alerts**: Telegram, one shared bot and ops chat, prefixed with the service name, capped
   per alert type per hour. Every unhandled 5xx alerts; a failed cron or a reached global budget
-  alerts by name.
+  alerts by name; an AI provider out of credits (HTTP 402, OpenAI `insufficient_quota`) alerts
+  once a day per provider, so the balance is topped up before users notice.
 - **Health**: `/api/health` is liveness and touches nothing; `/api/health/deep` probes the
   database (and Redis where it is a dependency), rate-limited and cached.
 - **Heartbeats**: each cron pings its own Better Stack heartbeat after a successful run.

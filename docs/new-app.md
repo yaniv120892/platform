@@ -3,8 +3,9 @@
 Load before starting a new app in the suite. Copy from the newest app that has the piece
 (Parking was built from Shopping) rather than re-deriving it.
 
-1. **Repo**: public under `yaniv120892`; `CLAUDE.md`, `DECISIONS.md` and one short doc per topic
-   under `docs/`. Next.js App Router, TypeScript, npm, `engines.node` `26.x`.
+1. **Repo**: public under `yaniv120892`; `AGENTS.md` (Claude Code reads it natively, so no
+   `CLAUDE.md`), `DECISIONS.md` and one short doc per topic under `docs/`. Next.js App Router,
+   TypeScript, npm, `engines.node` `26.x`.
 2. **Shared packages**: all four, pinned by tag → [shared-packages.md](shared-packages.md).
    `AppShell` with a new `APP_IDS` entry in `my-ui`, and the app's URL added to every sibling's
    app switcher.

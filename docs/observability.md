@@ -28,7 +28,7 @@ These live in dashboards, not repos. Change them by hand and update this list.
 
 | Where | What |
 | --- | --- |
-| Better Stack | one HTTP log source per app; per app a shallow monitor on `/api/health` every 3 min and a deep one on `/api/health/deep` every 60 min; one heartbeat per cron; missed beats and failed monitors email the owner |
+| Better Stack | one HTTP log source per app; per app a shallow monitor on `/api/health` every 3 min and a deep one on `/api/health/deep` every 30 min, the longest interval Better Stack allows; one heartbeat per cron; missed beats and failed monitors email the owner |
 | Sentry | one project per app |
 | PostHog | one shared project (692842, US) for every app |
 | Telegram | the ops bot and alert chat; the Expenses user bot; the Investments summary chat |

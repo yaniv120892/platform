@@ -1,4 +1,4 @@
-# CLAUDE.md
+# AGENTS.md
 
 The cross-app architecture of the **My suite**: four household apps (Expenses, Investments,
 Shopping, Parking) and the four shared packages they build on. Each app repo documents its own
